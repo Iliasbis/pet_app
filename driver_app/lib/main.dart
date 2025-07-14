@@ -8,6 +8,7 @@ import 'app/core/theme/app_theme.dart';
 import 'app/core/utils/app_constants.dart';
 import 'app/data/providers/api_provider.dart';
 import 'app/services/notification_service.dart';
+import 'app/services/location_service.dart';
 import 'app/services/socket_service.dart';
 import 'app/routes/app_pages.dart';
 import 'app/routes/app_routes.dart';
@@ -35,18 +36,19 @@ void main() async {
   // Initialize Services
   Get.put(ApiProvider());
   Get.put(NotificationService());
+  Get.put(LocationService());
   Get.put(SocketService());
 
-  runApp(const PalmKissedPawsApp());
+  runApp(const PalmKissedPawsDriverApp());
 }
 
-class PalmKissedPawsApp extends StatelessWidget {
-  const PalmKissedPawsApp({super.key});
+class PalmKissedPawsDriverApp extends StatelessWidget {
+  const PalmKissedPawsDriverApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: AppConstants.appName,
+      title: AppConstants.driverAppName,
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoutes.splash,
