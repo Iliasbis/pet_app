@@ -141,12 +141,35 @@ class HomeTab extends GetView<HomeController> {
               const SizedBox(width: 12),
               Expanded(
                 child: CustomButton(
-                  text: 'Add Pet',
-                  icon:
-                      const Icon(Icons.pets, color: AppColors.primaryTurquoise),
+                  text: 'Loyalty',
+                  icon: const Icon(Icons.star, color: AppColors.primaryTurquoise),
                   backgroundColor: AppColors.primaryTurquoise.withOpacity(0.1),
                   textColor: AppColors.primaryTurquoise,
-                  onPressed: controller.goToPets,
+                  onPressed: () => Get.toNamed('/loyalty'),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Row(
+            children: [
+              Expanded(
+                child: CustomButton(
+                  text: 'Recurring',
+                  icon: const Icon(Icons.repeat, color: AppColors.primaryPink),
+                  backgroundColor: AppColors.primaryPink.withOpacity(0.1),
+                  textColor: AppColors.primaryPink,
+                  onPressed: () => Get.toNamed('/recurring-rides'),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: CustomButton(
+                  text: 'Messages',
+                  icon: const Icon(Icons.message, color: AppColors.primaryPurple),
+                  backgroundColor: AppColors.primaryPurple.withOpacity(0.1),
+                  textColor: AppColors.primaryPurple,
+                  onPressed: () => Get.toNamed('/messages'),
                 ),
               ),
             ],

@@ -23,4 +23,8 @@ class AppRoutes {
   static const String settings = '/settings';
   static const String help = '/help';
   static const String about = '/about';
+  static const String loyalty = '/loyalty';
+  static const String recurringRides = '/recurring-rides';
+  static const String tracking = '/tracking';
+  static const String messages = '/messages';
 }

@@ -409,6 +409,15 @@ class BookingsView extends StatelessWidget {
                       backgroundColor: AppColors.primaryTurquoise,
                       onPressed: () => controller.viewBookingDetails(booking),
                     ),
+                    if (booking.status == BookingStatus.inProgress) ...[
+                      const SizedBox(width: 8),
+                      CustomButton(
+                        text: 'Track',
+                        size: ButtonSize.small,
+                        backgroundColor: AppColors.info,
+                        onPressed: () => Get.toNamed('/tracking', arguments: booking.id),
+                      ),
+                    ],
                   ],
                 ),
               ],

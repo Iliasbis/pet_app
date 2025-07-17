@@ -12,6 +12,10 @@ import { BookingsModule } from './modules/bookings/bookings.module';
 import { ServicesModule } from './modules/services/services.module';
 import { PaymentsModule } from './modules/payments/payments.module';
 import { AdminModule } from './modules/admin/admin.module';
+import { DriversModule } from './modules/drivers/drivers.module';
+import { NotificationsModule } from './modules/notifications/notifications.module';
+import { MessagesModule } from './modules/messages/messages.module';
+import { LoyaltyModule } from './modules/loyalty/loyalty.module';
 
 // Entities
 import { User } from './modules/users/entities/user.entity';
@@ -19,6 +23,13 @@ import { Pet } from './modules/pets/entities/pet.entity';
 import { Booking } from './modules/bookings/entities/booking.entity';
 import { Service } from './modules/services/entities/service.entity';
 import { Payment } from './modules/payments/entities/payment.entity';
+import { Driver } from './modules/drivers/entities/driver.entity';
+import { Notification } from './modules/notifications/entities/notification.entity';
+import { Message } from './modules/messages/entities/message.entity';
+import { Conversation } from './modules/messages/entities/conversation.entity';
+import { LoyaltyAccount } from './modules/loyalty/entities/loyalty-account.entity';
+import { LoyaltyTransaction } from './modules/loyalty/entities/loyalty-transaction.entity';
+import { LoyaltyReward } from './modules/loyalty/entities/loyalty-reward.entity';
 
 @Module({
   imports: [
@@ -34,7 +45,20 @@ import { Payment } from './modules/payments/entities/payment.entity';
         username: configService.get('DATABASE_USER'),
         password: configService.get('DATABASE_PASSWORD'),
         database: configService.get('DATABASE_NAME'),
-        entities: [User, Pet, Booking, Service, Payment],
+        entities: [
+          User, 
+          Pet, 
+          Booking, 
+          Service, 
+          Payment, 
+          Driver, 
+          Notification, 
+          Message, 
+          Conversation, 
+          LoyaltyAccount, 
+          LoyaltyTransaction, 
+          LoyaltyReward
+        ],
         synchronize: true, // Set to false in production
         logging: true,
       }),
@@ -56,6 +80,10 @@ import { Payment } from './modules/payments/entities/payment.entity';
     ServicesModule,
     PaymentsModule,
     AdminModule,
+    DriversModule,
+    NotificationsModule,
+    MessagesModule,
+    LoyaltyModule,
   ],
 })
 export class AppModule { }

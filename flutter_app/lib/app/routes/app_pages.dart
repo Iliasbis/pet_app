@@ -6,6 +6,14 @@ import 'package:palm_kissed_paws/app/modules/profile/help_support_view.dart';
 import 'package:palm_kissed_paws/app/modules/profile/notifications_view.dart';
 import 'package:palm_kissed_paws/app/modules/profile/payment_methods_view.dart';
 import 'package:palm_kissed_paws/app/modules/profile/privacy_security_view.dart';
+import 'package:palm_kissed_paws/app/modules/loyalty/loyalty_binding.dart';
+import 'package:palm_kissed_paws/app/modules/loyalty/loyalty_view.dart';
+import 'package:palm_kissed_paws/app/modules/recurring_rides/recurring_rides_binding.dart';
+import 'package:palm_kissed_paws/app/modules/recurring_rides/recurring_rides_view.dart';
+import 'package:palm_kissed_paws/app/modules/tracking/tracking_binding.dart';
+import 'package:palm_kissed_paws/app/modules/tracking/tracking_view.dart';
+import 'package:palm_kissed_paws/app/modules/messages/messages_binding.dart';
+import 'package:palm_kissed_paws/app/modules/messages/messages_view.dart';
 
 import '../modules/splash/splash_binding.dart';
 import '../modules/splash/splash_view.dart';
@@ -113,6 +121,30 @@ class AppPages {
     GetPage(
       name: AppRoutes.about,
       page: () => AboutView(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoutes.loyalty,
+      page: () => const LoyaltyView(),
+      binding: LoyaltyBinding(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoutes.recurringRides,
+      page: () => const RecurringRidesView(),
+      binding: RecurringRidesBinding(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoutes.tracking,
+      page: () => const TrackingView(),
+      binding: TrackingBinding(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoutes.messages,
+      page: () => const MessagesView(),
+      binding: MessagesBinding(),
       transition: Transition.rightToLeft,
     ),
   ];

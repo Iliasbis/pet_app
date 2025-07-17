@@ -126,4 +126,67 @@ class ApiProvider {
   Future<Response> confirmPayment(Map<String, dynamic> data) async {
     return await _dio.post('/payments/confirm', data: data);
   }
+
+  // Loyalty APIs
+  Future<Response> getLoyaltyData() async {
+    return await _dio.get('/loyalty');
+  }
+
+  Future<Response> redeemLoyaltyPoints(int points) async {
+    return await _dio.post('/loyalty/redeem', data: {
+      'points': points,
+      'description': 'Points redeemed for reward',
+    });
+  }
+
+  Future<Response> processReferral(String referralCode) async {
+    return await _dio.post('/loyalty/referral', data: {
+      'referralCode': referralCode,
+    });
+  }
+
+  // Recurring Rides APIs
+  Future<Response> getRecurringRides() async {
+    return await _dio.get('/recurring-rides');
+  }
+
+  Future<Response> createRecurringRide(Map<String, dynamic> data) async {
+    return await _dio.post('/recurring-rides', data: data);
+  }
+
+  Future<Response> updateRecurringRide(String id, Map<String, dynamic> data) async {
+    return await _dio.patch('/recurring-rides/$id', data: data);
+  }
+
+  Future<Response> deleteRecurringRide(String id) async {
+    return await _dio.delete('/recurring-rides/$id');
+  }
+
+  // Messages APIs
+  Future<Response> getConversations() async {
+    return await _dio.get('/messages/conversations');
+  }
+
+  Future<Response> getMessages(String conversationId) async {
+    return await _dio.get('/messages/conversations/$conversationId/messages');
+  }
+
+  Future<Response> sendMessage(String conversationId, String message) async {
+    return await _dio.post('/messages/conversations/$conversationId/messages', data: {
+      'content': message,
+    });
+  }
+
+  // Notifications APIs
+  Future<Response> getNotifications() async {
+    return await _dio.get('/notifications');
+  }
+
+  Future<Response> markNotificationAsRead(String id) async {
+    return await _dio.patch('/notifications/$id/read');
+  }
+
+  Future<Response> getUnreadNotificationsCount() async {
+    return await _dio.get('/notifications/unread/count');
+  }
 }
